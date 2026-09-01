@@ -2,15 +2,18 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
     { name: "About", href: "/about" },
     { name: "Project", href: "/projects" },
     { name: "Contact", href: "/contact" },
+    { name: "Admin", href: "/login" },
 ];
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -20,6 +23,10 @@ export default function Navbar() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    if (pathname === "/login" || pathname.startsWith("/admin")) {
+        return null;
+    }
 
     return (
         <header className="fixed inset-x-0 top-0 z-50">
@@ -40,7 +47,7 @@ export default function Navbar() {
                         <span className="font-mono text-[15px] text-[#B5482A] transition-transform duration-300 group-hover:-translate-x-0.5">
                             &lt;
                         </span>
-                        <h1 className="font-mono text-[15px] font-semibold tracking-tight text-[#2B2118]">
+                        <h1 className="font-mono text-lg font-semibold tracking-tight text-[#2B2118]">
                             Eirene Grace
                         </h1>
                         <span className="font-mono text-[15px] text-[#B5482A] transition-transform duration-300 group-hover:translate-x-0.5">
@@ -50,11 +57,11 @@ export default function Navbar() {
 
                     {/* Desktop */}
                     <nav className="hidden items-center gap-1 lg:flex">
-                        {navLinks.map((link, i) => (
+                        {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="group relative rounded-full px-4 py-2 font-mono text-sm tracking-wide text-[#2B2118]  transition-colors duration-300 hover:text-[#2B2118] uppercase font-semibold"
+                                className="group relative rounded-full px-4 py-2 font-mono text-md tracking-wide text-[#2B2118]  transition-colors duration-300 hover:text-[#2B2118] uppercase font-semibold"
                             >
                                 {link.name}
                                 <span className="absolute inset-x-4 -bottom-0.5 h-px scale-x-0 bg-[#B5482A] transition-transform duration-300 origin-left group-hover:scale-x-100" />
@@ -81,7 +88,7 @@ export default function Navbar() {
                 >
                     <div className="rounded-2xl border border-[#2B2118]/10 bg-[#F7EDE2] p-4 shadow-xl shadow-[#2B2118]/10">
                         <div className="space-y-1">
-                            {navLinks.map((link, i) => (
+                            {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
