@@ -3,7 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowUpRight, X, ExternalLink } from "lucide-react";
+import {
+    ArrowUpRight,
+    X,
+    ExternalLink,
+} from "lucide-react";
 
 const projects = [
     {
@@ -127,7 +131,11 @@ const projects = [
         link: "https://anilaoscubadiving.com",
         description:
             "A tourism and diving website created to showcase diving experiences, services, and information for visitors planning their Anilao adventure.",
-        tags: ["Web Development", "Tourism", "Informational System"],
+        tags: [
+            "Web Development",
+            "Tourism",
+            "Informational System",
+        ],
         type: "Live Website",
         details: {
             overview:
@@ -155,7 +163,10 @@ const projects = [
         link: "https://hibeautyspa.com",
         description:
             "A modern beauty and wellness website designed to showcase spa services, treatments, and the overall brand experience.",
-        tags: ["Web Development", "Informational System"],
+        tags: [
+            "Web Development",
+            "Informational System",
+        ],
         type: "Live Website",
         details: {
             overview:
@@ -182,7 +193,10 @@ const projects = [
         link: "https://mldesc.com/",
         description:
             "A professional consultancy website designed to present engineering and surveying services while establishing a credible digital presence.",
-        tags: ["Web Development", "Corporate Website"],
+        tags: [
+            "Web Development",
+            "Corporate Website",
+        ],
         type: "Live Website",
         details: {
             overview:
@@ -210,7 +224,11 @@ const projects = [
         link: "https://www.figma.com/proto/usSiD76mv8dTSkt0gC9tQI/LifeHealthConsult?node-id=36-140&p=f&t=GYbgwa66OlHjARar-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
         description:
             "A health consultancy website concept focused on presenting professional services, health resources, and an accessible user experience.",
-        tags: ["UI/UX Design", "Web Design", "Figma"],
+        tags: [
+            "UI/UX Design",
+            "Web Design",
+            "Figma",
+        ],
         type: "UI/UX Prototype",
         details: {
             overview:
@@ -238,7 +256,11 @@ const projects = [
         link: "https://www.figma.com/proto/usSiD76mv8dTSkt0gC9tQI/LifeHealthConsult?node-id=36-140&p=f&t=GYbgwa66OlHjARar-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
         description:
             "A centralized guidance and counseling platform designed to streamline student support, counselor workflows, and engagement.",
-        tags: ["Web Development", "Counseling Services", "System"],
+        tags: [
+            "Web Development",
+            "Counseling Services",
+            "System",
+        ],
         type: "Web Application",
         details: {
             overview:
@@ -266,33 +288,57 @@ const projects = [
 type Project = (typeof projects)[number];
 
 export default function ProjectSection() {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [selectedProject, setSelectedProject] =
+        useState<Project | null>(null);
+
+    const getProjectAction = (type: string) => {
+        switch (type) {
+            case "UI/UX Prototype":
+                return "View Prototype";
+
+            case "Web Application":
+                return "View Application";
+
+            default:
+                return "Visit Live Website";
+        }
+    };
 
     return (
         <section
             id="projects"
             className="w-full border-t border-[#2B2118]/10 bg-[#F7EDE2]"
         >
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+            <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12 lg:py-16">
 
                 {/* Section Header */}
                 <div className="mb-12 sm:mb-16">
-                    <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#2B2118]">
-                        Projects
+                    <div className="mb-5 flex items-center gap-3">
+                        <span className="h-px w-8 bg-[#B5482A]" />
+
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A]">
+                            Projects
+                        </span>
+                    </div>
+
+                    <h2 className="text-3xl font-bold tracking-tight text-[#2B2118] sm:text-4xl">
+                        Built & Designed.
                     </h2>
                 </div>
 
                 {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project, index) => (
                         <article
                             key={project.title}
-                            className="group flex flex-col h-full overflow-hidden border border-[#2B2118]/15 bg-white/30 transition-all duration-500 hover:border-[#B5482A]/40"
+                            className="group flex h-full flex-col overflow-hidden border border-[#2B2118]/15 bg-white/30 transition-all duration-500 hover:border-[#B5482A]/40"
                         >
                             {/* Project Image */}
                             <button
-                                type="button" 
-                                onClick={() => setSelectedProject(project)}
+                                type="button"
+                                onClick={() =>
+                                    setSelectedProject(project)
+                                }
                                 aria-label={`View details for ${project.title}`}
                                 className="relative aspect-[3/2] shrink-0 overflow-hidden bg-[#2B2118]/5"
                             >
@@ -304,15 +350,17 @@ export default function ProjectSection() {
                                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                                 />
 
-                                {/* Image Overlay */}
-                                <div className="absolute inset-0 bg-[#2B2118]/0 group-hover:bg-[#2B2118]/10 transition-colors duration-500" />
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-[#2B2118]/0 transition-colors duration-500 group-hover:bg-[#2B2118]/10" />
 
                                 {/* See Details */}
-                                <div className="absolute right-5 bottom-5">
-                                    <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#F7EDE2]/90 backdrop-blur-sm text-xs font-mono uppercase tracking-[0.15em] font-semibold text-[#2B2118] transition-all duration-300 group-hover:bg-[#F7EDE2] group-hover:text-[#B5482A]">
+                                <div className="absolute bottom-5 right-5">
+                                    <span className="inline-flex items-center gap-2 rounded-full bg-[#F7EDE2]/90 px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#2B2118] backdrop-blur-sm transition-all duration-300 group-hover:bg-[#F7EDE2] group-hover:text-[#B5482A]">
                                         See Details
+
                                         <ArrowUpRight
                                             size={16}
+                                            strokeWidth={1.5}
                                             className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                                         />
                                     </span>
@@ -320,25 +368,24 @@ export default function ProjectSection() {
                             </button>
 
                             {/* Content */}
-                            <div className="flex flex-col flex-1 p-6 sm:p-8">
+                            <div className="flex flex-1 flex-col p-6 sm:p-8">
 
+                                {/* Main Content */}
                                 <div>
-                                    {/* Title */}
-                                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-[#2B2118] mb-4">
+                                    <h3 className="mb-4 text-xl font-bold tracking-tight text-[#2B2118] md:text-2xl">
                                         {project.title}
                                     </h3>
 
-                                    {/* Description */}
-                                    <p className="text-md leading-relaxed text-[#2B2118]/65 font-serif mb-7">
+                                    <p className="mb-7 font-serif text-base leading-relaxed text-[#2B2118]/65">
                                         {project.description}
                                     </p>
 
                                     {/* Tags */}
-                                    <div className="flex flex-wrap gap-2 mb-3">
+                                    <div className="mb-3 flex flex-wrap gap-2">
                                         {project.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="px-3 py-1.5 border border-[#2B2118]/15 rounded-full font-mono text-[10px] uppercase tracking-wide text-[#2B2118]/60"
+                                                className="rounded-full border border-[#2B2118]/15 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wide text-[#2B2118]/60"
                                             >
                                                 {tag}
                                             </span>
@@ -347,26 +394,31 @@ export default function ProjectSection() {
                                 </div>
 
                                 {/* Bottom Actions */}
-                                <div className="mt-auto pt-4 flex items-center gap-3 border-t border-[#2B2118]/15 mt-8">
+                                <div className="mt-auto flex items-center gap-3 border-t border-[#2B2118]/15 pt-4">
 
-                                    {/* Details */}
+                                    {/* View Details */}
                                     <button
                                         type="button"
-                                        onClick={() => setSelectedProject(project)}
-                                        className="flex-1 text-left font-mono text-xs uppercase tracking-[0.15em] font-semibold text-[#2B2118] hover:text-[#B5482A] transition-colors"
+                                        onClick={() =>
+                                            setSelectedProject(project)
+                                        }
+                                        className="flex-1 text-left font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#2B2118] transition-colors hover:text-[#B5482A]"
                                     >
-                                        Visit Site
+                                        View Details
                                     </button>
 
-                                    {/* Website */}
+                                    {/* External Link */}
                                     <Link
                                         href={project.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        aria-label={`Visit ${project.title} website`}
-                                        className="flex items-center justify-center w-10 h-10 rounded-full border border-[#2B2118]/20 text-[#2B2118] hover:border-[#B5482A] hover:text-[#B5482A] transition-all duration-300"
+                                        aria-label={`${getProjectAction(project.type)} - ${project.title}`}
+                                        className="flex h-10 w-10 items-center justify-center rounded-full border border-[#2B2118]/20 text-[#2B2118] transition-all duration-300 hover:border-[#B5482A] hover:text-[#B5482A]"
                                     >
-                                        <ExternalLink size={15} />
+                                        <ExternalLink
+                                            size={15}
+                                            strokeWidth={1.5}
+                                        />
                                     </Link>
                                 </div>
                             </div>
@@ -378,7 +430,7 @@ export default function ProjectSection() {
             {/* Project Details Modal */}
             {selectedProject && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 border border-[#2B2118]/15 bg-[#F7EDE2]/90 backdrop-blur-sm rounded-lg shadow-2xl shadow-[#2B2118]/20"
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
                     role="dialog"
                     aria-modal="true"
                     aria-label={`${selectedProject.title} project details`}
@@ -387,21 +439,28 @@ export default function ProjectSection() {
                     <button
                         type="button"
                         aria-label="Close project details"
-                        onClick={() => setSelectedProject(null)}
-                        className="absolute inset-0 bg-[#2B2118]/60 backdrop-blur-sm cursor-default"
+                        onClick={() =>
+                            setSelectedProject(null)
+                        }
+                        className="absolute inset-0 cursor-default bg-[#2B2118]/60 backdrop-blur-sm"
                     />
 
                     {/* Modal */}
-                    <div className="relative z-10 w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#F7EDE2] border border-[#2B2118]/15 shadow-2xl">
+                    <div className="relative z-10 max-h-[90vh] w-full max-w-5xl overflow-y-auto border border-[#2B2118]/15 bg-[#F7EDE2] shadow-2xl">
 
                         {/* Close Button */}
                         <button
                             type="button"
-                            onClick={() => setSelectedProject(null)}
-                            aria-label="Close"
-                            className="absolute top-5 right-5 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-[#F7EDE2]/90 border border-[#2B2118]/15 text-[#2B2118] hover:text-[#B5482A] hover:border-[#B5482A] transition-all"
+                            onClick={() =>
+                                setSelectedProject(null)
+                            }
+                            aria-label="Close project details"
+                            className="absolute right-5 top-5 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-[#2B2118]/15 bg-[#F7EDE2]/90 text-[#2B2118] backdrop-blur-sm transition-all duration-300 hover:border-[#B5482A] hover:bg-[#B5482A] hover:text-white"
                         >
-                            <X size={18} />
+                            <X
+                                size={18}
+                                strokeWidth={1.5}
+                            />
                         </button>
 
                         {/* Modal Image */}
@@ -413,10 +472,14 @@ export default function ProjectSection() {
                                 className="object-cover"
                             />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118]/50 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118]/60 via-transparent to-transparent" />
 
-                            <div className="absolute bottom-6 left-6 sm:left-10">
-                                <h3 className="text-3xl sm:text-5xl font-bold text-[#F7EDE2] mt-2">
+                            <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-10">
+                                <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#F7EDE2]/70">
+                                    {selectedProject.type}
+                                </p>
+
+                                <h3 className="text-3xl font-bold tracking-tight text-[#F7EDE2] sm:text-5xl">
                                     {selectedProject.title}
                                 </h3>
                             </div>
@@ -424,22 +487,25 @@ export default function ProjectSection() {
 
                         {/* Modal Content */}
                         <div className="p-6 sm:p-10 lg:p-12">
-
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+                            <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-14">
 
                                 {/* Main Details */}
                                 <div className="lg:col-span-2">
-                                    <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A] mb-4">
-                                        Overview
-                                    </p>
 
-                                    <p className="text-base sm:text-lg leading-relaxed font-serif text-[#2B2118]/70">
-                                        {selectedProject.details.overview}
-                                    </p>
+                                    {/* Overview */}
+                                    <div>
+                                        <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A]">
+                                            Overview
+                                        </p>
+
+                                        <p className="font-serif text-base leading-relaxed text-[#2B2118]/70 sm:text-lg">
+                                            {selectedProject.details.overview}
+                                        </p>
+                                    </div>
 
                                     {/* Features */}
                                     <div className="mt-10">
-                                        <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A] mb-5">
+                                        <p className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A]">
                                             Key Features
                                         </p>
 
@@ -450,8 +516,11 @@ export default function ProjectSection() {
                                                         key={feature}
                                                         className="flex gap-3 text-sm text-[#2B2118]/70"
                                                     >
-                                                        <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-[#B5482A]" />
-                                                        {feature}
+                                                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B5482A]" />
+
+                                                        <span>
+                                                            {feature}
+                                                        </span>
                                                     </li>
                                                 )
                                             )}
@@ -459,12 +528,12 @@ export default function ProjectSection() {
                                     </div>
                                 </div>
 
-                                {/* Project Info */}
-                                <aside className="border-t lg:border-t-0 lg:border-l border-[#2B2118]/15 pt-8 lg:pt-0 lg:pl-8">
+                                {/* Project Information */}
+                                <aside className="border-t border-[#2B2118]/15 pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
 
                                     {/* Role */}
                                     <div className="mb-8">
-                                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#2B2118]/45 mb-2">
+                                        <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-[#2B2118]/45">
                                             My Role
                                         </p>
 
@@ -475,7 +544,7 @@ export default function ProjectSection() {
 
                                     {/* Technologies */}
                                     <div className="mb-8">
-                                        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#2B2118]/45 mb-3">
+                                        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-[#2B2118]/45">
                                             Technologies
                                         </p>
 
@@ -484,7 +553,7 @@ export default function ProjectSection() {
                                                 (technology) => (
                                                     <span
                                                         key={technology}
-                                                        className="px-2.5 py-1.5 border border-[#2B2118]/15 rounded-full font-mono text-[10px] text-[#2B2118]/65"
+                                                        className="rounded-full border border-[#2B2118]/15 px-2.5 py-1.5 font-mono text-[10px] text-[#2B2118]/65"
                                                     >
                                                         {technology}
                                                     </span>
@@ -493,15 +562,21 @@ export default function ProjectSection() {
                                         </div>
                                     </div>
 
-                                    {/* Website */}
+                                    {/* Project Link */}
                                     <Link
                                         href={selectedProject.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] font-semibold text-[#B5482A] hover:text-[#2B2118] transition-colors"
+                                        className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[#B5482A] transition-colors hover:text-[#2B2118]"
                                     >
-                                        Visit Live Website
-                                        <ArrowUpRight size={15} />
+                                        {getProjectAction(
+                                            selectedProject.type
+                                        )}
+
+                                        <ArrowUpRight
+                                            size={15}
+                                            strokeWidth={1.5}
+                                        />
                                     </Link>
                                 </aside>
                             </div>

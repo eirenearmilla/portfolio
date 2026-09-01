@@ -17,8 +17,8 @@ const contactDetails = [
     {
         icon: Mail,
         label: "Email",
-        value: "eirenegrc.armilla@email.com",
-        href: "mailto:eirenegrc.armilla@email.com",
+        value: "eirenegrc.armilla@gmail.com",
+        href: "mailto:eirenegrc.armilla@gmail.com",
     },
     {
         icon: Phone,
@@ -65,9 +65,13 @@ export default function ContactSection() {
 
                     {/* Left */}
                     <div>
-                        <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#B5482A]">
-                            04 / Contact
-                        </p>
+                        <div className="mb-4 flex items-center gap-3">
+                            <span className="h-px w-8 bg-[#B5482A]" />
+
+                            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5482A]">
+                                Contact
+                            </span>
+                        </div>
 
                         <h2 className="max-w-3xl text-5xl font-bold leading-[0.95] tracking-[-0.05em] text-[#2B2118] sm:text-6xl lg:text-7xl">
                             Building Digital{" "}
@@ -155,10 +159,6 @@ export default function ContactSection() {
                 <div className="mt-16 flex flex-col gap-3 border-t border-[#2B2118]/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
                     <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#2B2118]/40">
                         Available for freelance &amp; collaborations
-                    </p>
-
-                    <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#B5482A]">
-                        Let&apos;s build something →
                     </p>
                 </div>
             </div>
