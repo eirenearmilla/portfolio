@@ -289,12 +289,12 @@ export default function ProjectSection() {
                             key={project.title}
                             className="group flex flex-col h-full overflow-hidden border border-[#2B2118]/15 bg-white/30 transition-all duration-500 hover:border-[#B5482A]/40"
                         >
-                            {/* Image */}
+                            {/* Project Image */}
                             <button
-                                type="button"
+                                type="button" 
                                 onClick={() => setSelectedProject(project)}
-                                className="relative aspect-[3/2] shrink-0 overflow-hidden bg-[#2B2118]/5 text-left"
                                 aria-label={`View details for ${project.title}`}
+                                className="relative aspect-[3/2] shrink-0 overflow-hidden bg-[#2B2118]/5"
                             >
                                 <Image
                                     src={project.image}
@@ -304,11 +304,18 @@ export default function ProjectSection() {
                                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                                 />
 
+                                {/* Image Overlay */}
                                 <div className="absolute inset-0 bg-[#2B2118]/0 group-hover:bg-[#2B2118]/10 transition-colors duration-500" />
 
-                                {/* Hover Icon */}
-                                <div className="absolute right-5 bottom-5 flex items-center justify-center w-10 h-10 rounded-full bg-[#F7EDE2]/90 text-[#2B2118] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                    <ArrowUpRight size={17} />
+                                {/* See Details */}
+                                <div className="absolute right-5 bottom-5">
+                                    <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#F7EDE2]/90 backdrop-blur-sm text-xs font-mono uppercase tracking-[0.15em] font-semibold text-[#2B2118] transition-all duration-300 group-hover:bg-[#F7EDE2] group-hover:text-[#B5482A]">
+                                        See Details
+                                        <ArrowUpRight
+                                            size={16}
+                                            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                        />
+                                    </span>
                                 </div>
                             </button>
 

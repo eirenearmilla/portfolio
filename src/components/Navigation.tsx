@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const navLinks = [
-    { name: "About", href: "/about" },
-    { name: "Project", href: "/projects" },
-    { name: "Contact", href: "/contact" },
-    { name: "Admin", href: "/login" },
+    { name: "About", href: "#about" },
+    { name: "Project", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+    // { name: "Admin", href: "/login" },
 ];
 
 export default function Navbar() {
