@@ -11,7 +11,7 @@ import {
 
 const projects = [
     {
-        image: "/projects/hero-serviced-space.png",
+        image: "/projects/hero-serviced-office.png",
         title: "HERO Serviced Office",
         link: "https://hero-office-space.vercel.app/",
         description:
@@ -42,7 +42,7 @@ const projects = [
     },
 
     {
-        image: "/projects/lume-bean-and-bar.png",
+        image: "/projects/lumebeanbar.png",
         title: "Lumé Bean and Bar",
         link: "https://lumébeanandbar.com",
         description:
@@ -347,7 +347,7 @@ export default function ProjectSection() {
                                     alt={project.title}
                                     fill
                                     priority={index === 0}
-                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                                    className="object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                                 />
 
                                 {/* Overlay */}
@@ -469,7 +469,7 @@ export default function ProjectSection() {
                                 src={selectedProject.image}
                                 alt={selectedProject.title}
                                 fill
-                                className="object-cover"
+                                className="object-contain"
                             />
 
                             <div className="absolute inset-0 bg-gradient-to-t from-[#2B2118]/60 via-transparent to-transparent" />
