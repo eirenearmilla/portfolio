@@ -11,9 +11,9 @@ import {
 
 const projects = [
     {
-        image: "/path/to/hero-project.jpg",
+        image: "/projects/hero-serviced-space.png",
         title: "HERO Serviced Office",
-        link: "https://heroservicedoffice.com",
+        link: "https://hero-office-space.vercel.app/",
         description:
             "A corporate website and digital inquiry platform for a serviced-office provider, built to showcase workspace solutions and convert visitors into qualified leads.",
         tags: ["Web Development", "CMS", "Lead Generation"],
@@ -42,7 +42,7 @@ const projects = [
     },
 
     {
-        image: "/path/to/lume-project.jpg",
+        image: "/projects/lume-bean-and-bar.png",
         title: "Lumé Bean and Bar",
         link: "https://lumébeanandbar.com",
         description:
@@ -70,9 +70,9 @@ const projects = [
     },
 
     {
-        image: "/path/to/alveo-project.jpg",
-        title: "ALVEO Land",
-        link: "https://alveoland.com",
+        image: "/projects/alveo-agent.png",
+        title: "ALVEO Land Agent",
+        link: "https://staging-alveo.vercel.app/",
         description:
             "A real estate web experience designed to help users discover properties, explore developments, and access detailed project information.",
         tags: ["Web Development", "Listing System"],
@@ -99,9 +99,9 @@ const projects = [
     },
 
     {
-        image: "/path/to/whole-love-project.jpg",
+        image: "/projects/whole-love.png",
         title: "Whole Love",
-        link: "https://wholelove.com",
+        link: "https://www.wholeloveph.com/",
         description:
             "A clean informational website designed to communicate the brand, services, and offerings through an approachable digital experience.",
         tags: ["Web Development", "Informational System"],
@@ -126,9 +126,9 @@ const projects = [
     },
 
     {
-        image: "/path/to/anilao-project.jpg",
+        image: "/projects/anilao.png",
         title: "Anilao Scuba Diving Center",
-        link: "https://anilaoscubadiving.com",
+        link: "https://anilao-scuba-diving-center.vercel.app/",
         description:
             "A tourism and diving website created to showcase diving experiences, services, and information for visitors planning their Anilao adventure.",
         tags: [
@@ -158,9 +158,9 @@ const projects = [
     },
 
     {
-        image: "/path/to/hi-beauty-spa-project.jpg",
+        image: "/projects/hi-beauty-spa.png",
         title: "Hi Beauty Spa",
-        link: "https://hibeautyspa.com",
+        link: "https://www.hibeautyspaph.com/",
         description:
             "A modern beauty and wellness website designed to showcase spa services, treatments, and the overall brand experience.",
         tags: [
@@ -188,7 +188,7 @@ const projects = [
     },
 
     {
-        image: "/path/to/mld-project.jpg",
+        image: "/projects/mldesc.png",
         title: "MLD Engineering and Surveying Consultancy",
         link: "https://mldesc.com/",
         description:
@@ -219,7 +219,7 @@ const projects = [
     },
 
     {
-        image: "/path/to/life-health-project.jpg",
+        image: "/projects/lifehealth.jpg",
         title: "Life Health Consultancy",
         link: "https://www.figma.com/proto/usSiD76mv8dTSkt0gC9tQI/LifeHealthConsult?node-id=36-140&p=f&t=GYbgwa66OlHjARar-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
         description:
@@ -251,9 +251,9 @@ const projects = [
     },
 
     {
-        image: "/path/to/guidancehub-project.jpg",
+        image: "/projects/guidancehub.jpg",
         title: "GuidanceHub",
-        link: "https://www.figma.com/proto/usSiD76mv8dTSkt0gC9tQI/LifeHealthConsult?node-id=36-140&p=f&t=GYbgwa66OlHjARar-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
+        link: "",
         description:
             "A centralized guidance and counseling platform designed to streamline student support, counselor workflows, and engagement.",
         tags: [
