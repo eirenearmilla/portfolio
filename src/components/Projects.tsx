@@ -44,7 +44,7 @@ const projects = [
     {
         image: "/projects/lumebeanbar.png",
         title: "Lumé Bean and Bar",
-        link: "https://lumébeanandbar.com",
+        link: "https://lumebeanbar.vercel.app/",
         description:
             "A modern café website designed to showcase the brand, menu, and atmosphere while providing customers with a convenient online booking experience.",
         tags: ["Web Development", "Booking System"],
